@@ -19,9 +19,9 @@ Route::get('/', function () {
 });
 
 Route::prefix('relationship')->group(function() {
-    Route::get('avatar', [Relationship::class, 'avatar']); //One - One
+    Route::get('avatar',    [Relationship::class, 'avatar']);   //One - One ===> 1 user - 1 avatar
+    Route::get('posts',     [Relationship::class, 'posts']);    //One - Many ===> 1 user - N posts
 
-    // Route::get('posts', [RelationshipController::class, 'posts']);
     // Route::get('category', [RelationshipController::class, 'category']);
     // Route::get('category-attach', [RelationshipController::class, 'categoryAttach']);
     // Route::get('category-detach', [RelationshipController::class, 'categoryDetach']);
