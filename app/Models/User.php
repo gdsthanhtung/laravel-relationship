@@ -52,4 +52,16 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
+
+    public function postThroughCategory()
+    {
+        return $this->hasOneThrough(Post::class, Category::class);
+    }
+
+    public function postssssThroughCategory()
+    {
+        return $this->hasManyThrough(Post::class, Category::class);
+    }
+
+
 }

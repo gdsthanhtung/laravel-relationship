@@ -54,4 +54,13 @@ class Relationship extends Controller
         $posts = Post::find(3);
         $posts->categories()->sync([3,4]);
     }
+
+    public function postsThroughCategory()
+    {
+        $user = User::find(18);
+        $post = $user->postThroughCategory;
+        $postssss = $user->postssssThroughCategory;
+
+        dd($post, $postssss);
+    }
 }
