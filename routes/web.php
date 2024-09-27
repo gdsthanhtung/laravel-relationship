@@ -19,8 +19,13 @@ Route::get('/', function () {
 });
 
 Route::prefix('relationship')->group(function() {
-    Route::get('avatar',    [Relationship::class, 'avatar']);   //One - One ===> 1 user - 1 avatar
-    Route::get('posts',     [Relationship::class, 'posts']);    //One - Many ===> 1 user - N posts
+    Route::get('avatar',    [Relationship::class, 'avatar']);   //One - One     ===> 1 user - 1 avatar
+    Route::get('posts',     [Relationship::class, 'posts']);    //One - Many    ===> 1 user - N posts
+
+    Route::get('categories',  [Relationship::class, 'categories']); //Many - Many   ===> N posts - N category
+    Route::get('categories-attach',  [Relationship::class, 'categoriesAttach']); //Many - Many   ===> Link post vs category
+    Route::get('categories-detach',  [Relationship::class, 'categoriesDetach']); //Many - Many   ===> Unlink post vs category
+    Route::get('categories-sync',  [Relationship::class, 'categoriesSync']); //Many - Many   ===> Link new and Unlink old post vs category
 
     // Route::get('category', [RelationshipController::class, 'category']);
     // Route::get('category-attach', [RelationshipController::class, 'categoryAttach']);
