@@ -63,4 +63,15 @@ class Relationship extends Controller
 
         dd($post, $postssss);
     }
+
+    public function polyOneOne()
+    {
+        $user = User::find(18);
+        $userImage = ($user) ? $user->image : 'N/A';
+
+        $post = Post::find(2);
+        $postImage = ($post) ? $post->image : 'N/A';
+
+        dd($userImage, $postImage);
+    }
 }
