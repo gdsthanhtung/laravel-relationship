@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Avatar;
 use App\Models\Category;
+use App\Models\Comment;
+use App\Models\Image;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -82,5 +84,25 @@ class Relationship extends Controller
         $postComments   = ($post) ? $post->comments : 'N/A';
 
         dd($postComment, $postComments);
+    }
+
+    public function polyOneCreate()
+    {
+        $image = new Image([
+            'url' => 'http://image.com/1.png'
+        ]);
+
+        $post = Post::find(5);
+        $rs = $post->image()->save($image);
+        dump($rs);
+
+        $comment = new Comment([
+            'user_id' => 18,
+            'content' => 'Đây là mức giá khá tốt khi so sánh với mẫu máy tính bảng RedMagic Nova'
+        ]);
+
+        $post = Post::find(4);
+        $rs = $post->comment()->save($comment);
+        dump($rs);
     }
 }

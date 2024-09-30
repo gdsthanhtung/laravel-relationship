@@ -21,7 +21,7 @@ Route::get('/', function () {
 Route::prefix('relationship')->group(function() {
 
     // // P1
-    // Route::get('category-post', [RelationshipController::class, 'categoryPost']);
+    // Route::get('category-post', [Relationship::class, 'categoryPost']);
     Route::get('avatar',    [Relationship::class, 'avatar']);   //One - One     ===> 1 user - 1 avatar
     Route::get('posts',     [Relationship::class, 'posts']);    //One - Many    ===> 1 user - N posts
 
@@ -36,15 +36,16 @@ Route::prefix('relationship')->group(function() {
     // // P3
     Route::get('poly-one-one', [Relationship::class, 'polyOneOne']);
     Route::get('poly-one-many', [Relationship::class, 'polyOneMany']);
+    Route::get('poly-one-create', [Relationship::class, 'polyOneCreate']);
 
-    // Route::get('poly-one-create', [RelationshipController::class, 'polyOneCreate']);
+    // Route::get('poly-one-create', [Relationship::class, 'polyOneCreate']);
 
-    // Route::get('poly-many-create', [RelationshipController::class, 'polyManyCreate']);
-    // Route::get('poly-many-many', [RelationshipController::class, 'polyManyMany']);
+    // Route::get('poly-many-create', [Relationship::class, 'polyManyCreate']);
+    // Route::get('poly-many-many', [Relationship::class, 'polyManyMany']);
 
     // // P4
-    // Route::get('all-post', [RelationshipController::class, 'allPost']);
+    // Route::get('all-post', [Relationship::class, 'allPost']);
 
     // // P5
-    // Route::get('condition-relationship', [RelationshipController::class, 'conditionRelationship']);
+    // Route::get('condition-relationship', [Relationship::class, 'conditionRelationship']);
 });
