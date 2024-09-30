@@ -74,4 +74,13 @@ class Relationship extends Controller
 
         dd($userImage, $postImage);
     }
+
+    public function polyOneMany()
+    {
+        $post = Post::find(5);
+        $postComment    = ($post) ? $post->comment  : 'N/A';
+        $postComments   = ($post) ? $post->comments : 'N/A';
+
+        dd($postComment, $postComments);
+    }
 }

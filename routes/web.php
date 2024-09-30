@@ -35,8 +35,8 @@ Route::prefix('relationship')->group(function() {
 
     // // P3
     Route::get('poly-one-one', [Relationship::class, 'polyOneOne']);
+    Route::get('poly-one-many', [Relationship::class, 'polyOneMany']);
 
-    // Route::get('poly-one-many', [RelationshipController::class, 'polyOneMany']);
     // Route::get('poly-one-create', [RelationshipController::class, 'polyOneCreate']);
 
     // Route::get('poly-many-create', [RelationshipController::class, 'polyManyCreate']);
