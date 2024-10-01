@@ -41,8 +41,9 @@ Route::prefix('relationship')->group(function() {
     Route::get('poly-many-create', [Relationship::class, 'polyManyCreate']);
     Route::get('poly-many-many', [Relationship::class, 'polyManyMany']);
 
-    // // P4
-    // Route::get('all-post', [Relationship::class, 'allPost']);
+    // // P4 Eager Loading
+    Route::get('all-post', [Relationship::class, 'allPost']);
+    Route::get('all-post-by-needle-data', [Relationship::class, 'getPostsByNeedleData']);
 
     // // P5
     // Route::get('condition-relationship', [Relationship::class, 'conditionRelationship']);

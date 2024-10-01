@@ -136,4 +136,36 @@ class Relationship extends Controller
         $post = Post::find(4);
         dump($post, $post->tags);
     }
+
+    public function allPost(){
+        //$posts = Post::get();
+        $posts = Post::with('user:id,name', 'user.image', 'categories')->get();
+
+        // $posts = Post::with([
+        //     'categories' => function($query){
+        //         $query->where('name', 'like', '%au%');
+        //     },
+        //     'user.image'
+        // ])->get();
+
+        dd($posts);
+
+        return view('relationship.allpost', compact('posts'));
+    }
+
+    public function getAllPost($user = false, $image = false, $category = false){
+        $posts = Post::all();
+        if($user)           $posts->load('user:*');
+        if($user && $image) $posts->load('user.image');
+        if($category)       $posts->load('categories');
+        return $posts;
+    }
+
+    public function getPostsByNeedleData(){
+        $posts = $this->getAllPost($user = true, $image = true, $category = true);
+
+        dump($posts);
+
+        return view('relationship.allpost', compact('posts'));
+    }
 }
