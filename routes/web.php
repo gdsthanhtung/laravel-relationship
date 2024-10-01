@@ -38,10 +38,8 @@ Route::prefix('relationship')->group(function() {
     Route::get('poly-one-many', [Relationship::class, 'polyOneMany']);
     Route::get('poly-one-create', [Relationship::class, 'polyOneCreate']);
 
-    // Route::get('poly-one-create', [Relationship::class, 'polyOneCreate']);
-
-    // Route::get('poly-many-create', [Relationship::class, 'polyManyCreate']);
-    // Route::get('poly-many-many', [Relationship::class, 'polyManyMany']);
+    Route::get('poly-many-create', [Relationship::class, 'polyManyCreate']);
+    Route::get('poly-many-many', [Relationship::class, 'polyManyMany']);
 
     // // P4
     // Route::get('all-post', [Relationship::class, 'allPost']);

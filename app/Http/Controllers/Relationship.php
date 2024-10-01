@@ -8,6 +8,7 @@ use App\Models\Comment;
 use App\Models\Image;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class Relationship extends Controller
@@ -98,11 +99,41 @@ class Relationship extends Controller
 
         $comment = new Comment([
             'user_id' => 18,
-            'content' => 'Đây là mức giá khá tốt khi so sánh với mẫu máy tính bảng RedMagic Nova'
+            'content' => 'RedMagic Nova'
         ]);
 
         $post = Post::find(4);
         $rs = $post->comment()->save($comment);
         dump($rs);
+    }
+
+    public function polyManyCreate()
+    {
+        // Tạo tag và lưu relaionship records
+        $tag1 = new Tag([
+            'name' => 'iphone'
+        ]);
+
+        $tag2 = new Tag([
+            'name' => 'android'
+        ]);
+
+        $post = Post::find(5);
+        //$rs = $post->tags()->saveMany([$tag1, $tag2]);
+        //dump($rs);
+
+        // Link tag có sẵn với post
+        $tag1 = Tag::find(1);
+        $tag2 = Tag::find(2);
+        $post = Post::find(4);
+        $post->tags()->attach([$tag1->id, $tag2->id]);
+        // detach | sync
+        return true;
+    }
+
+    public function polyManyMany()
+    {
+        $post = Post::find(4);
+        dump($post, $post->tags);
     }
 }
